@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Emendas Parlamentares</ion-title>
+  </ion-navbar>
+  <!--
+  <ion-toolbar>
+    <ion-title>Valor Investido: {{valorTotal}}</ion-title>
+  </ion-toolbar>
+  -->
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Pesquisar" animated="true"></ion-searchbar>
+  <ion-list no-lines>
+    <ion-item-divider text-center>
+      <h2 item-start style="font-weight: bold;">Nº da Emenda</h2>
+      <h2 style="font-weight: bold;">UF</h2>
+      <h2 item-end style="font-weight: bold; margin-right:16px !important;">Investimento</h2>
+    </ion-item-divider>
+    <button ion-item *ngFor="let i of items; let idx=index" (click)="itemSelected(i)">
+      <p item-start>{{i.numeroEmendaParlamentarFormatado}}</p>
+      <p text-center>{{i.uf}}</p>
+      <p item-end>{{i.valorTotalFormatado}}</p>
+    </button>
+  </ion-list>
+
+  <div text-center style="margin-top: 26px; margin-bottom: 26px;">
+    <h4>Quantidade de Emendas: {{qtdEmendasTotal}}</h4>
+    <h4>Valor Investido: {{valorTotal}}</h4>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+      <h2>{{userProvider.getUserInfo().nome}}</h2>
+      <p>{{userProvider.getUserInfo().cargo}}</p>
+      <h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

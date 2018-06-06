@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Emenda Parlamentar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label stacked>Nº da Emenda</ion-label>
+          <ion-label>{{emendaParam.numeroEmendaParlamentarFormatado}}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>UF</ion-label>
+          <ion-label>{{emendaParam.uf}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Partido</ion-label>
+          <ion-label>{{emendaParam.partido}}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-8>
+        <ion-item>
+          <ion-label stacked>Parlamentar</ion-label>
+          <ion-label>{{emendaParam.autor}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Valor</ion-label>
+          <ion-label>{{emendaParam.valorTotalFormatado}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--
+    <div text-center>
+      <p style="font-weight: bold; font-size:17px; background-color:lightgray;">Propostas/Convênios</p>
+    </div>
+    -->
+  <div margin-top margin-right margin-left>
+    <h4>Propostas/Convênios</h4>
+  </div>
+
+  <ion-list no-lines>
+    <ion-item-divider text-center>
+      <h2 item-start style="font-weight: bold;">Número</h2>
+      <h2 style="font-weight: bold;">Situação</h2>
+      <h2 item-end style="font-weight: bold; margin-right:16px !important;">Valor</h2>
+    </ion-item-divider>
+    <button ion-item *ngFor="let i of items; let idx=index" (click)="itemSelected(i)">
+      <p item-start>{{i.numeroPropostaSiconv}}</p>
+      <p text-center>{{!i.situacaoPropostaSiconv ? '-' : i.situacaoPropostaSiconv}}</p>
+      <p item-end>{{!i.vlEmpreendimentoFormatado ? '-' : i.vlEmpreendimentoFormatado}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+      <h2>{{userProvider.getUserInfo().nome}}</h2>
+      <p>{{userProvider.getUserInfo().cargo}}</p>
+      <h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

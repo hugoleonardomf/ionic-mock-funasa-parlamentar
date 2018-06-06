@@ -1,0 +1,59 @@
+page-ufEmendas {
+
+	.header .col {
+		background-color:lightgray;
+		font-weight: bold;
+	}
+
+	.header .colFinal {
+		background-color:lightgray;
+		width:14%;
+		border: solid 1px grey;
+		border-bottom-style: none;
+		border-right-style: none;
+		border-left-style: none;
+	}
+
+	.col {
+		width:33%;
+		text-align: center;
+		border: solid 1px grey;
+		border-bottom-style: none;
+		border-right-style: none;
+		border-left-style: none;
+	}
+
+	.colMeio {
+		width:20%;
+		text-align: center;
+		border: solid 1px grey;
+		border-bottom-style: none;
+		border-right-style: none;
+		border-left-style: none;
+	}
+
+	.colFinal {
+		width:14%;
+		text-align: center;
+		border: solid 1px grey;
+		border-bottom-style: none;
+		border-right-style: none;
+		border-left-style: none;
+	}
+
+	.col:last-child {
+		border-right: solid 1px grey;
+	}
+
+	.row:last-child .col {
+		border-bottom: solid 1px grey;
+	}
+
+	.row:last-child .colMeio {
+		border-bottom: solid 1px grey;
+	}
+	.row:last-child .colFinal {
+		border-bottom: solid 1px grey;
+	}
+
+}

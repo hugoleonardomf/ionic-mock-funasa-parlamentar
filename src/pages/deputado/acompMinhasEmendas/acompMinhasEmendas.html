@@ -1,0 +1,98 @@
+<ion-header>
+	<ion-navbar color="funasa">
+		<ion-title>Acompanhar Minhas Emendas</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<div text-center>
+		<ion-list>
+			<ion-searchbar placeholder="Pesquisar" animated="true"></ion-searchbar>
+
+			<ion-item-group>
+				<ion-item-divider color="light">
+					<p item-start style="font-size:12px;" absolute-drag>Proposta/Convênio</p>
+					<h2 style="font-weight: bold; font-size:15px;" absolute-drag>EMENDA Nº: 300001/2018</h2>
+					<p item-end style="font-size:12px;" absolute-drag>Acompanhar</p>
+				</ion-item-divider>
+				<ion-item>
+					<ion-label>123456/2018</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>654321/2018</ion-label>
+					<ion-toggle></ion-toggle>
+				</ion-item>
+			</ion-item-group>
+			<ion-item-group>
+				<ion-item-divider color="light">
+					<p item-start style="font-size:12px;" absolute-drag>Proposta/Convênio</p>
+					<h2 style="font-weight: bold; font-size:15px;" absolute-drag>EMENDA Nº: 300003/2018</h2>
+					<p item-end style="font-size:12px;" absolute-drag>Acompanhar</p>
+				</ion-item-divider>
+				<ion-item>
+					<ion-label>753951/2018</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>357159/2018</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>741852/2018</ion-label>
+					<ion-toggle></ion-toggle>
+				</ion-item>
+			</ion-item-group>
+			<ion-item-group>
+				<ion-item-divider color="light">
+					<p item-start style="font-size:12px;" absolute-drag>Proposta/Convênio</p>
+					<h2 style="font-weight: bold; font-size:15px;" absolute-drag>EMENDA Nº: 300002/2018</h2>
+					<p item-end style="font-size:12px;" absolute-drag>Acompanhar</p>
+				</ion-item-divider>
+				<ion-item>
+					<ion-label>159357/2018</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+			</ion-item-group>
+			<ion-item-group>
+				<ion-item-divider color="light">
+					<p item-start style="font-size:12px;" absolute-drag>Proposta/Convênio</p>
+					<h2 style="font-weight: bold; font-size:15px;" absolute-drag>EMENDA Nº: 300004/2017</h2>
+					<p item-end style="font-size:12px;" absolute-drag>Acompanhar</p>
+				</ion-item-divider>
+				<ion-item>
+					<ion-label>963852/2017</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>258369/2017</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>156452/2017</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-label>587985/2017</ion-label>
+					<ion-toggle checked="true"></ion-toggle>
+				</ion-item>
+			</ion-item-group>
+
+		</ion-list>
+	</div>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+		<ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+			<ion-avatar item-start>
+				<img src="assets/imgs/deputado.png">
+			</ion-avatar>
+			<h2>{{userProvider.getUserInfo().nome}}</h2>
+			<p>{{userProvider.getUserInfo().cargo}}</p>
+			<h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
+		</ion-item>
+	</ion-toolbar>
+</ion-footer>

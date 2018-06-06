@@ -1,0 +1,39 @@
+page-deputado {
+
+  .card, .card-md, .card-ios {
+    box-shadow: none;
+    padding: 2px;
+    padding-top: 10px;
+  }
+
+  .icon-circle, .icon-circle-large, .icon-circle-small{
+    position: relative;
+    display: inline-block;
+    margin: -1px;
+    width: 45px;
+    height: 45px;
+    font-size:40px;
+     -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+    background: rgb(0, 161, 225);
+    color: #fff;
+    text-align:center;
+  }
+
+  .icon-circle-large {
+    width: 96px;
+    height: 96px;
+    font-size: 48px;
+    padding: 17px;
+  }
+
+  .icon-circle-outline {
+     border: 1px solid rgb(0, 161, 225);
+     background: transparent;
+    color: rgb(0, 161, 225);
+     /*color: #8a6de9;*/
+  }
+
+}

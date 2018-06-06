@@ -1,0 +1,8 @@
+{
+  "name": "funasa-parlamentar",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-navbar color="funasa" text-center>
+    <ion-title>Emendas Parlamentares</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="homeNgModel">
+      <ion-segment-button value="deputados">
+        Parlamentar
+      </ion-segment-button>
+      <ion-segment-button value="cidadao">
+        Cidadão
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="homeNgModel">
+
+    <div *ngSwitchCase="'deputados'" ngSelected="selected">
+      <div text-center>
+        <img src="assets/imgs/background.png" />
+        <p style="font-weight: bold; font-size:20px;color:gray">ACESSO PARA PARLAMENTARES</p>
+        <p style="font-weight: bold; font-size:13px;color:gray">
+          Aplicativo para Consultar/Acompanhar Emendas.
+        </p>
+      </div>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <div padding-left padding-right padding-bottom>
+        <button ion-button color="primary" block round (click)="login()">Login</button>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <button ion-button color="primary" small round clear block>Primeiro Acesso</button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button color="primary" small round clear block>Esqueci a Senha</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+    <form *ngSwitchCase="'cidadao'">
+      <img src="assets/imgs/cidadao.png" padding-top padding-right padding-left />
+      <div text-center>
+        <p style="font-weight: bold; font-size:18px;color:gray">CONSULTA EMENDAS PARLAMENTARES</p>
+        <p style="font-weight: bold; font-size:13px;color:gray">
+          A participação da População junto à FUNASA.
+        </p>
+      </div>
+      <div padding text-center>
+        <button ion-button color="primary" block round (click)="irParaCidadao()">Acessar</button>
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col text-center>
+              <button ion-button clear small icon-only>
+                <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+                funasa.oficial
+              </button>
+              <button ion-button clear small icon-only>
+                <ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon>
+                @funasa
+              </button>
+              <button ion-button clear small icon-only>
+                <ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+                @funasa_oficial
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </form>
+
+    <!--
+		<ion-card *ngSwitchCase="'cidadao'">
+			<img src="assets/imgs/cidadao.png" />
+			<ion-card-content>
+				<div padding>
+					<button ion-button color="primary" (click)="irParaCidadao()">Acessar</button>
+					<div text-center>
+						<p style="font-weight: bold; font-size:18px;color:#488aff" absolute-drag>
+							Consultar Emendas Parlamentares.
+						</p>
+						<p style="font-weight: bold; font-size:12px;color:#488aff" absolute-drag>
+							A participação da População junto à FUNASA.
+						</p>
+					</div>
+				</div>
+			</ion-card-content>
+			<ion-row no-padding>
+				<ion-col text-center>
+					<button ion-button clear small icon-only>
+						<ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+						funasa.oficial
+					</button>
+					<button ion-button clear small icon-only>
+						<ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon>
+						@funasa
+					</button>
+					<button ion-button clear small icon-only>
+						<ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+						@funasa_oficial
+					</button>
+				</ion-col>
+			</ion-row>
+    </ion-card>
+    -->
+
+  </div>
+
+</ion-content>

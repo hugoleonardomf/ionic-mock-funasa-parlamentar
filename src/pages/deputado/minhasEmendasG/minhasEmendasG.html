@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Emendas Parlamentares</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="display: block">
+    <section class="chart-wrapper">
+      <canvas #barChart></canvas>
+    </section>
+  </div>
+
+  <div text-center style="margin-top: -10px;" margin-bottom>
+    <h4>Quantidade de Emendas: {{qtdEmendasTotal}}</h4>
+    <h4>Valor Investido: {{valorTotal}}</h4>
+    <button ion-button icon-left round (click)="detalharMinhasEmendas()" margin-bottom>
+      Detalhar Minhas Emendas
+    </button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+      <h2>{{userProvider.getUserInfo().nome}}</h2>
+      <p>{{userProvider.getUserInfo().cargo}}</p>
+      <h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

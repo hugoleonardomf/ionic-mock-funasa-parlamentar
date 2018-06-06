@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Quem é quem na Funasa?</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-list class="transbox">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>PRESIDÊNCIA</h2>
+      <h3>Rodrigo Sergio Dias</h3>
+      <h4>rodrigo.dias@funasa.gov.br</h4>
+      <p>(61)3314-6466</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>GABPR - Gabinete da Presidência</h2>
+      <h3>Guilherme Arthur Botelho Victório Cerioni</h3>
+      <h4>guilherme.cerioni@funasa.gov.br</h4>
+      <p>(61)3314-6619</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>CGOFI - Prog. Orçamentária e Financeira</h2>
+      <h3>Valteir Lopes Pereira</h3>
+      <h4>valteir.pereira@funasa.gov.br</h4>
+      <p>(61)3314-6303</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>CGCON - Convênios</h2>
+      <h3>Lilian da Silva Capinam</h3>
+      <h4>lilian.capinam@funasa.gov.br</h4>
+      <p>(61)3314-6232</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>DENSP - Engenharia de Saúde Pública</h2>
+      <h3>Ruy Gomide Barreira</h3>
+      <h4>ruy.barreira@funasa.gov.br</h4>
+      <p>(61)3314-6262</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>DESAM - Saúde Ambiental</h2>
+      <h3>Ângela Cristina Pereira da Costa</h3>
+      <h4>angela.costa@funasa.gov.br</h4>
+      <p>(61)3314-6206</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-thumbnail>
+      <h2>CSU - Central de Suporte ao Usuário</h2>
+      <h3>Ricardo Amaral de Pretto</h3>
+      <h4>ricardo.pretto@funasa.gov.br</h4>
+      <p>(61)3314-6172</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-row no-padding>
+    <ion-col text-center>
+      <button ion-button clear small icon-only>
+        <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+        funasa.oficial
+      </button>
+      <button ion-button clear small icon-only>
+        <ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon>
+        @funasa
+      </button>
+      <button ion-button clear small icon-only>
+        <ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+        @funasa_oficial
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding>
+    <ion-col text-center>
+      <a class="item" href="#" onclick="window.open('http://www.funasa.gov.br', '_system', 'location=yes'); return false;">
+        <button ion-button clear color="primary" icon-start>
+          <ion-icon name="md-globe"></ion-icon>
+          funasa.gov.br
+        </button>
+      </a>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+      <h2>{{userProvider.getUserInfo().nome}}</h2>
+      <p>{{userProvider.getUserInfo().cargo}}</p>
+      <h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

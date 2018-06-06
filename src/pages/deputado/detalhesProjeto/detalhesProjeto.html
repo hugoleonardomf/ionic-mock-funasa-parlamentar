@@ -1,0 +1,230 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Proposta/Convênio</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="prjModel">
+      <ion-segment-button value="dados">Dados Gerais</ion-segment-button>
+      <ion-segment-button value="orcamento">Orçamento</ion-segment-button>
+      <ion-segment-button value="fisico">Acomp. Físico</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="prjModel">
+    <!-- ABA DADOS GERAIS -->
+    <ion-list *ngSwitchCase="'dados'" ngSelected="selected">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Nº da Emenda</ion-label>
+              <ion-label>{{nuEmendaParam}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Nº da Proposta</ion-label>
+              <ion-label>{{projetoParam.numeroPropostaSiconv}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Município</ion-label>
+              <ion-label>{{projetoParam.beneficiadoMuniciopio}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-3>
+            <ion-item>
+              <ion-label stacked>UF</ion-label>
+              <ion-label>{{projetoParam.entidadeUf}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Nº do Instrumento</ion-label>
+              <ion-label>{{projetoParam.numeroInstrumento}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-7>
+            <ion-item>
+              <ion-label stacked>Nº do Processo</ion-label>
+              <ion-label>{{projetoParam.numeroProcesso}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Ação</ion-label>
+              <ion-label>{{projetoParam.acao}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Situação</ion-label>
+              <ion-label>{{projetoParam.situacaoObra}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-7>
+            <ion-item>
+              <ion-label stacked>Dirigente</ion-label>
+              <ion-label>{{projetoParam.nomeDirigente}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- ABA DADOS GERAIS > INFO ADMINISTRATIVA -->
+      <div margin-top margin-right margin-left>
+        <h4>Informações Administrativas</h4>
+      </div>
+      <ion-item *ngFor="let i of listaInfAdm; let idx=index">
+        <h2>{{i.dataRegistro}}</h2>
+        <p>{{i.nomeUsuario}}</p>
+        <button ion-button outline item-end (click)="showAlert('Informação', i.informacaoAdministrativa)">Ver texto</button>
+      </ion-item>
+    </ion-list>
+
+    <!-- ABA ORÇAMENTO -->
+    <ion-list *ngSwitchCase="'orcamento'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Vigência</ion-label>
+              <ion-label>{{!projetoParam.dataTerminoConvenio ? '-' : projetoParam.dataTerminoConvenio}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Valor</ion-label>
+              <ion-label>{{!projetoParam.vlEmpreendimentoFormatado ? '-' : projetoParam.vlEmpreendimentoFormatado}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Total Empenhado</ion-label>
+              <ion-label>{{!projetoParam.vlEmpenhadoFormatado ? '-' : projetoParam.vlEmpenhadoFormatado}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label stacked>Total Pago</ion-label>
+              <ion-label>{{!projetoParam.vlPagoFormatado ? '-' : projetoParam.vlPagoFormatado}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- ABA ORÇAMENTO > EMPENHO -->
+      <ion-segment [(ngModel)]="obModel">
+        <ion-segment-button value="empenho">Empenho</ion-segment-button>
+        <ion-segment-button value="ob">Ordem Bancária</ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="obModel">
+        <div *ngSwitchCase="'empenho'">
+          <ion-row text-center style="font-weight: bold !important; padding-top:2px !important;">
+            <ion-col col-4>Nº Empenho</ion-col>
+            <ion-col>Data</ion-col>
+            <ion-col col-2>Tipo</ion-col>
+            <ion-col>Valor</ion-col>
+          </ion-row>
+          <ion-row text-center *ngFor="let i of listaEmp; let idx=index">
+            <ion-col col-4>{{i.numeroEmpenho}}</ion-col>
+            <ion-col>{{i.dataEmissao}}</ion-col>
+            <ion-col col-2>{{i.tipoEmpenho.substring(0,3)}}</ion-col>
+            <ion-col>{{i.valorEmpenhoFormatado}}</ion-col>
+          </ion-row>
+        </div>
+        <!-- ABA ORÇAMENTO > ORDEM BANCÁRIA -->
+        <div *ngSwitchCase="'ob'">
+          <ion-row text-center style="font-weight: bold !important; padding-top:2px !important;">
+            <ion-col col-4>Nº OB</ion-col>
+            <ion-col>Data</ion-col>
+            <ion-col>Cancelado</ion-col>
+            <ion-col>Valor</ion-col>
+          </ion-row>
+          <ion-row text-center *ngFor="let i of listaOb; let idx=index">
+            <ion-col col-4>{{i.numeroOrdemBancaria}}</ion-col>
+            <ion-col>{{i.dataOrdemBancaria}}</ion-col>
+            <ion-col>{{i.loCancelado}}</ion-col>
+            <ion-col>{{i.valorFormatado}}</ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-list>
+
+    <!-- ABA ACOMPANHAMENTO FÍSICO -->
+    <div *ngSwitchCase="'fisico'">
+      <!-- ABA ACOMPANHAMENTO FÍSICO > RELATÓRIOS -->
+      <div margin-top margin-right margin-left>
+        <h4>Relatórios de Acompanhamento</h4>
+      </div>
+      <ion-row text-center style="font-weight: bold !important; padding-top:2px !important;">
+        <ion-col>Data</ion-col>
+        <ion-col>Tipo</ion-col>
+        <ion-col>Execução</ion-col>
+        <ion-col>Situação</ion-col>
+      </ion-row>
+      <ion-row text-center *ngFor="let i of listaRel; let idx=index">
+        <ion-col>{{i.dataRelatorio}}</ion-col>
+        <ion-col>{{i.nomeRelatorio}}</ion-col>
+        <ion-col>{{!i.numeroPercentualExecucao ? '-' : i.numeroPercentualExecucao+'%'}}</ion-col>
+        <ion-col>{{!i.situacaoObra ? '-' : i.situacaoObra}}</ion-col>
+      </ion-row>
+      <!-- ABA ACOMPANHAMENTO FÍSICO > PARECERES -->
+      <div margin-top margin-right margin-left>
+        <h4>Pareceres</h4>
+      </div>
+      <!-- TESTE -->
+      <ion-item *ngFor="let i of listaPar; let idx=index">
+        <h2>{{i.loTipoParecer}}</h2>
+        <p>Data Parecer: {{i.dataParecer}}</p>
+        <p>Data Atualização: {{i.dataAtualizacao}}</p>
+        <button ion-button outline item-end (click)="showAlert('Texto Parecer', i.textoParecer)">Ver texto</button>
+      </ion-item>
+      <!-- TESTE -->
+      <!--
+      <ion-row style="font-weight: bold !important; padding-top:2px !important;">
+        <ion-col>Data</ion-col>
+        <ion-col>Tipo</ion-col>
+        <ion-col col-1 style="margin-right:16px !important;"></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let i of listaPar; let idx=index">
+        <ion-col>{{i.dataParecer}}</ion-col>
+        <ion-col>{{i.loTipoParecer}}</ion-col>
+        <ion-col col-1 style="margin-right:16px !important;">
+          <button ion-button clear small icon-only (click)="showAlert('Texto Parecer', i.textoParecer)">
+            <ion-icon name="md-document"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      -->
+      <div text-center margin>
+        <button ion-button icon-left small outline (click)="openLocalPdf()" round margin-bottom margin-top>
+          <ion-icon name="ios-document"></ion-icon>Imprimir Ficha</button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

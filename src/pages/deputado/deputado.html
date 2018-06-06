@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar color="funasa">
+    <ion-title>Emendas Parlamentares</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="quem()">
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="ios-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="deputadoNgModel">
+      <ion-segment-button value="consulta">Consulta</ion-segment-button>
+      <ion-segment-button value="acompanhamento" [disabled]="true">Acompanhamento</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <div [ngSwitch]="deputadoNgModel">
+    <ion-list *ngSwitchCase="'consulta'">
+      <ion-grid>
+        <ion-row justify-content-around>
+          <ion-col text-center>
+            <ion-card (click)="irParaMinhasEmendas()">
+              <a class="icon-circle-large icon-circle-outline">
+                <ion-icon name="ios-albums"></ion-icon>
+              </a>
+              <button ion-button clear>Minhas Emendas</button>
+            </ion-card>
+          </ion-col>
+          <ion-col text-center>
+            <ion-card (click)="irParaUfEmendas()">
+              <a class="icon-circle-large icon-circle-outline">
+                <ion-icon name="ios-map"></ion-icon>
+              </a>
+              <button ion-button clear>POR UF</button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-around>
+          <ion-col text-center>
+            <ion-card (click)="irParaPartidoEmendas()">
+              <a class="icon-circle-large icon-circle-outline">
+                <ion-icon name="ios-flag"></ion-icon>
+              </a>
+              <button ion-button clear>Por Partido</button>
+            </ion-card>
+          </ion-col>
+          <ion-col text-center>
+            <ion-card (click)="irParaPesquisaAvancada()">
+              <a class="icon-circle-large icon-circle-outline">
+                <ion-icon name="md-options"></ion-icon>
+              </a>
+              <button ion-button clear>Pesquisar</button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngSwitchCase="'acompanhamento'">
+      <ion-grid>
+        <ion-row justify-content-around>
+          <ion-col text-center>
+            <ion-card (click)="irParaAcompMinhasEmendas()">
+              <img src="assets/imgs/funasa.png" />
+            </ion-card>
+            <button ion-button clear (click)="irParaAcompMinhasEmendas()">Minhas Emendas</button>
+          </ion-col>
+          <ion-col text-center>
+            <ion-card (click)="irParaAcompInstrumentos()">
+              <img src="assets/imgs/funasa.png" />
+            </ion-card>
+            <button ion-button clear (click)="irParaAcompInstrumentos()">Instrumentos</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
+    <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
+      <ion-avatar item-start>
+        <img src="assets/imgs/deputado.png">
+      </ion-avatar>
+      <h2>{{userProvider.getUserInfo() ? userProvider.getUserInfo().nome : ''}}</h2>
+      <p>{{userProvider.getUserInfo() ? userProvider.getUserInfo().cargo : ''}}</p>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button color="primary" icon-start (click)="quem()" margin-right>
+        <ion-icon name="ios-information-circle-outline"></ion-icon>Quem é Quem?
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
