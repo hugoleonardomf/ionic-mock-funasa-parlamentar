@@ -72,7 +72,7 @@ export class MinhasEmendasPage {
     }
     else if (tipoConsulta == 'pesq') {
       urlParam = this.urlPesqAvanc +
-        "siglaUf=" + this.ufPesqParam +
+        "&siglaUf=" + this.ufPesqParam +
         "&nomeMunicipio=" + this.municipioPesqParam +
         "&ano=" + this.anoPesqParam +
         "&siglaPartido=" + this.partidoPesqParam +

@@ -218,13 +218,15 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="userProvider.getUserInfo()">
   <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
     <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
       <ion-avatar item-start>
         <img src="assets/imgs/deputado.png">
       </ion-avatar>
-
+      <h2>{{userProvider.getUserInfo().nome}}</h2>
+      <p>{{userProvider.getUserInfo().cargo}}</p>
+      <h2 item-end>{{userProvider.getUserInfo().partido}}</h2>
     </ion-item>
   </ion-toolbar>
 </ion-footer>

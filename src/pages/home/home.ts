@@ -5,6 +5,7 @@ import { DeputadoPage } from '../deputado/deputado';
 import { CidadaoPage } from '../cidadao/cidadao';
 
 import { UserProvider } from '../../providers/user/user';
+import { PesquisaAvancadaPage } from '../deputado/pesquisaAvancada/pesquisaAvancada';
 
 @Component({
 	selector: 'page-home',
@@ -19,7 +20,7 @@ export class HomePage {
 	constructor(public navCtrl: NavController, private alertCtrl: AlertController, private userProvider: UserProvider) {
 		this.homeNgModel = "deputados";
 		this.registerCredentials.email = "flavianomelo@camara.leg.br";
-		this.registerCredentials.password = "12345";		
+		this.registerCredentials.password = "12345";
 	}
 
 	public login() {
@@ -38,7 +39,10 @@ export class HomePage {
 	}
 
 	irParaCidadao(): void {
-		this.navCtrl.push(CidadaoPage);
+		//this.navCtrl.push(CidadaoPage);
+		this.navCtrl.push(PesquisaAvancadaPage, {
+			pageOrigemParam: 'cidadao'
+		});
 	}
 
 	showError(title, text) {

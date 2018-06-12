@@ -14,6 +14,7 @@ import { MinhasEmendasPage } from '../minhasEmendas/minhasEmendas';
 
 export class PesquisaAvancadaPage {
 
+  public pageOrigem: string;
   public ufLista: Array<any>;
   public ufSelected: string;
   public municipioLista: Array<any>;
@@ -38,6 +39,7 @@ export class PesquisaAvancadaPage {
   private urlSituacaoAll: string = "http://soa.funasa.gov.br/emendaparlamentar-webservice/rest/dados/api/v1.0.0/parlamentares/emendas/siconv/situacao/format/json";
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public http: Http, public navParams: NavParams, private userProvider: UserProvider) {
+    this.pageOrigem = this.navParams.get('pageOrigemParam');
     this.carregarFiltros();
   }
 

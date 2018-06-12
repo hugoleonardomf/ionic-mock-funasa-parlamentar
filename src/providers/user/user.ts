@@ -38,7 +38,7 @@ export class UserProvider {
   public getUserInfo(): User {
     let userInfo;
     if (this.currentUser == null) {
-      userInfo = { nome: 'MockName', email: 'MockMail', partido: 'PMDB', cargo: 'MockCargo' };
+      //userInfo = { nome: 'MockName', email: 'MockMail', partido: 'PMDB', cargo: 'MockCargo' };
     }
     else {
       userInfo = this.currentUser;

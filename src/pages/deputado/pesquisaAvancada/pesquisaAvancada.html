@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="funasa">
-    <ion-title>Pesquisa Avançada</ion-title>
+    <ion-title>{{pageOrigem == 'cidadao' ? 'Pesquisar Emendas Parlamentares' : 'Pesquisa Avançada'}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -77,15 +77,15 @@
     </ion-grid>
     <ion-item padding-right>
       <ion-label stacked>Nº da Emenda</ion-label>
-      <ion-input type="text" [(ngModel)]="nuEmendaSelected" placeholder="Ex.: 999999/2018"></ion-input>
+      <ion-input type="text" [(ngModel)]="nuEmendaSelected" placeholder="Ex.: 999999"></ion-input>
     </ion-item>
     <ion-item padding-right>
       <ion-label stacked>Nº do Instrumento</ion-label>
-      <ion-input type="text" [(ngModel)]="nuInstrumentoSelected" placeholder="Ex.: XX 1234/2018"></ion-input>
+      <ion-input type="text" [(ngModel)]="nuInstrumentoSelected" placeholder="Ex.: XX 1234"></ion-input>
     </ion-item>
     <ion-item padding-right>
       <ion-label stacked>Nº da Proposta</ion-label>
-      <ion-input type="text" [(ngModel)]="nuPropostaSelected" placeholder="Ex.: 999999/2018"></ion-input>
+      <ion-input type="text" [(ngModel)]="nuPropostaSelected" placeholder="Ex.: 999999"></ion-input>
     </ion-item>
 
   </ion-list>
@@ -98,7 +98,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="userProvider.getUserInfo()">
   <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="toolbar-buttons-page">
     <ion-item no-lines [color]="isAndroid ? 'royal' : 'light'">
       <ion-avatar item-start>
