@@ -104,23 +104,10 @@ export class DetalhesProjetoPage {
     alert.present();
   }
 
-  openLocalPdf() {
-    const options: DocumentViewerOptions = { title: 'My PDF' }
-    this.document.viewDocument('assets/deputadoPDF.pdf', 'application/pdf', options);
-  }
-
-  downloadAndOpenPdf() {
-    let path: string;
-
-    if (this.platform.is('ios')) {
-      path = this.file.documentsDirectory;
-    } else {
-      path = this.file.externalDataDirectory;
-    }
-    const transfer = this.transfer.create();
-    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => {
-      let url = entry.toURL();
-      this.document.viewDocument(url, 'application/pdf', {});
-    });
+  openPdf() {
+    //const options: DocumentViewerOptions = { title: 'My PDF' }
+    //this.document.viewDocument('assets/deputadoPDF.pdf', 'application/pdf', options);
+    let urlParam = "http://soa.funasa.gov.br/emendaparlamentar-webservice/rest/dados/api/v1.0.0/relatorio/PDF";
+    this.http.get(urlParam);
   }
 }
