@@ -105,9 +105,8 @@ export class DetalhesProjetoPage {
   }
 
   openPdf() {
-    //const options: DocumentViewerOptions = { title: 'My PDF' }
-    //this.document.viewDocument('assets/deputadoPDF.pdf', 'application/pdf', options);
-    let urlParam = "http://soa.funasa.gov.br/emendaparlamentar-webservice/rest/dados/api/v1.0.0/relatorio/PDF";
-    this.http.get(urlParam);
+    let urlParam = 'http://soa.funasa.gov.br/emendaparlamentar-webservice/rest/dados/api/v1.0.0/relatorio/relatorioconsolidado/pdf?identificadorProjeto=';
+    urlParam = urlParam + this.projetoParam.identificadorProjeto;
+    window.open(urlParam);
   }
 }
