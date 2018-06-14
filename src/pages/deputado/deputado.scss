@@ -13,7 +13,7 @@ page-deputado {
     width: 45px;
     height: 45px;
     font-size:40px;
-     -moz-border-radius:50%;
+    -moz-border-radius:50%;
     -webkit-border-radius:50%;
     border-radius: 50%;
     border: 1px solid #ebebeb;
@@ -23,10 +23,11 @@ page-deputado {
   }
 
   .icon-circle-large {
-    width: 96px;
-    height: 96px;
-    font-size: 48px;
-    padding: 17px;
+    width: 76px;
+    height: 76px;
+    font-size: 38px;
+    padding: 14px;
+    color: #FFF;
   }
 
   .icon-circle-outline {
